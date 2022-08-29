@@ -27,3 +27,23 @@ function operate(operator, a, b) {
 }
 
 console.log(operate('/', 2, 3));
+
+// Function that populates the display when the user click buttons
+
+// Targeting Display
+const display = document.querySelector('.display');
+display.textContent = '0';
+
+const buttons = document.querySelectorAll('button'); 
+console.log(buttons);
+
+buttons.forEach((button) => {
+    button.addEventListener('click', () => {
+        if (display.textContent === '0') {
+            display.textContent = '';
+            display.textContent = button.textContent;
+        } else {
+            display.textContent += button.textContent;
+        }
+    })
+});
