@@ -30,11 +30,12 @@ console.log(operate('/', 2, 3));
 
 // Function that populates the display when the user click buttons
 
-// Targeting Display
+// Targeting Display in the DOM and setting initial value to 0
 const display = document.querySelector('.display');
 display.textContent = '0';
 
-const buttons = document.querySelectorAll('button'); 
+// Targets the buttons and update
+const buttons = document.querySelectorAll('.numbers'); 
 console.log(buttons);
 
 buttons.forEach((button) => {
