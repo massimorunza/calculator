@@ -22,7 +22,7 @@ body {
 }
 
 .display {
-    flex: 1;
+    /* flex: 1; */
     border: 1px solid black;
     text-align: end;
     font-weight: bolder;
@@ -30,29 +30,34 @@ body {
     background-color: orange;
 }
 
+.clear-row {
+    display: flex;
+    /* justify-content: space-evenly; */
+}
+
 .first-row {
     display: flex;
-    justify-content: space-evenly;
+    /* justify-content: space-evenly; */
     background-color: green;
 }
 
 .second-row {
     display: flex;
-    justify-content: space-evenly;
+    /* justify-content: space-evenly; */
 
     background-color: bisque;
 }
 
 .third-row {
     display: flex;
-    justify-content: space-evenly;
+    /* justify-content: space-evenly; */
 
     background-color: green;
 }
 
 .fourth-row {
     display: flex;
-    justify-content: space-evenly;
+    /* justify-content: space-evenly; */
     background-color: bisque;
 }
 
