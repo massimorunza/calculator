@@ -66,7 +66,17 @@ button {
     padding: 10px;
 }
 
+.operator {
+    background-color: darkgray;
+    font-weight: bolder;
+}
 
+.clear {
+    background-color: darkgray;
+    font-weight: bolder;
+}
 
-
-
+.delete {
+    background-color: darkgray;
+    font-weight: bolder;
+}
