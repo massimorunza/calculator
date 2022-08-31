@@ -31,7 +31,6 @@ function operate(operator, a, b) {
 let displayValue1 = undefined;
 let displayValue2 = undefined;
 let operator = '';
-// let switcher = false;
 
 // Function that populates the display when the user click buttons
 
@@ -68,7 +67,6 @@ operators.forEach((button) => {
             displayValue1 = display.textContent;
             operator = button.textContent;
             display.textContent += operator ;
-            // switcher = true;
             console.log(displayValue1, '', displayValue2);
         } else if (display.textContent === displayValue1 + '+') {
             return NaN;
@@ -81,8 +79,9 @@ operators.forEach((button) => {
         } else {
             displayValue2 = parseInt(display.textContent);
             display.textContent = operate(operator, parseInt(displayValue1), parseInt(displayValue2)) +
-                                operator;
+                        button.textContent;
             displayValue1 = operate(operator, parseInt(displayValue1), parseInt(displayValue2));
+            operator = button.textContent;
             displayValue2 = undefined;
             console.log('eh ' + displayValue2);
         }
