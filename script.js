@@ -31,7 +31,7 @@ function operate(operator, a, b) {
 let displayValue1 = undefined;
 let displayValue2 = undefined;
 let operator = '';
-let switcher = false;
+// let switcher = false;
 
 // Function that populates the display when the user click buttons
 
@@ -64,15 +64,23 @@ const operators = document.querySelectorAll('.operator');
 
 operators.forEach((button) => {
     button.addEventListener('click', () => {
-        switcher = false;
         if (displayValue1 === undefined){
             displayValue1 = display.textContent;
             operator = button.textContent;
-            display.textContent += operator;
+            display.textContent += operator ;
+            // switcher = true;
             console.log(displayValue1, '', displayValue2);
+        } else if (display.textContent != displayValue1 + '+') {
+            displayValue2 = parseInt(display.textContent);
+            display.textContent = operate(operator, parseInt(displayValue1), parseInt(displayValue2)) +
+                                operator;
+            displayValue1 = operate(operator, parseInt(displayValue1), parseInt(displayValue2));
+            displayValue2 = undefined;
+            console.log('eh ' + displayValue2);
+            // switcher = true;
+            // console.log(operate(operator, parseInt(displayValue1), parseInt(displayValue2)));
         } else {
-            displayValue2 = display.textContent;
-            console.log(operate(operator, parseInt(displayValue1), parseInt(displayValue2)));
+            return NaN;
         }
     })
 });
@@ -80,14 +88,23 @@ operators.forEach((button) => {
 const calc = document.querySelector('.calculate');
 
 calc.addEventListener('click', () => {
-    if (switcher === false) {
-        switcher = true;
-        displayValue2 = display.textContent;
-        display.textContent = operate(operator, parseInt(displayValue1), parseInt(displayValue2));
-        displayValue1 = undefined;
-        displayValue2 = undefined;
-        } else {
-        console.log('nein');
+    if (displayValue1 === undefined) {
+        console.log('suca');
+        return NaN;
+    } 
+    // else if (switcher === true) {
+    //     // switcher = false;
+    //     displayValue2 = display.textContent;
+    //     display.textContent = operate(operator, parseInt(displayValue1), parseInt(displayValue2));
+    //     displayValue1 = undefined;
+    //     displayValue2 = undefined;
+    //     } 
+        
+        else if (display.textContent != displayValue1 + '+') {
+            displayValue2 = display.textContent;
+            display.textContent = operate(operator, parseInt(displayValue1), parseInt(displayValue2));
+            displayValue1 = undefined;
+            displayValue2 = undefined;
         }
 },);
 
@@ -95,4 +112,6 @@ const clear = document.querySelector('.clear');
 
 clear.addEventListener('click', () => {
     display.textContent = 0;
-})
+    displayValue1 = undefined;
+    displayValue2 = undefined;
+});
