@@ -78,8 +78,7 @@ operators.forEach((button) => {
             return NaN;
         } else if (display.textContent === displayValue1 + '/') {
             return NaN;
-        }
-         else {
+        } else {
             displayValue2 = parseInt(display.textContent);
             display.textContent = operate(operator, parseInt(displayValue1), parseInt(displayValue2)) +
                                 operator;
@@ -115,9 +114,15 @@ calc.addEventListener('click', () => {
             return NaN;
         } else {
             displayValue2 = display.textContent;
+            if (operator === '/' && parseInt(displayValue2) === 0) {
+                display.textContent = ('brutto bastardo, ci hai provato');
+                displayValue1 = undefined;
+                displayValue2 = undefined;
+            } else {
             display.textContent = operate(operator, parseInt(displayValue1), parseInt(displayValue2));
             displayValue1 = undefined;
             displayValue2 = undefined;
+            }
         }
 },);
 
