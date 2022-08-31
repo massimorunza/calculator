@@ -90,3 +90,9 @@ calc.addEventListener('click', () => {
         console.log('nein');
         }
 },);
+
+const clear = document.querySelector('.clear');
+
+clear.addEventListener('click', () => {
+    display.textContent = 0;
+})
