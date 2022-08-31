@@ -119,7 +119,8 @@ calc.addEventListener('click', () => {
                 displayValue1 = undefined;
                 displayValue2 = undefined;
             } else {
-            display.textContent = operate(operator, parseInt(displayValue1), parseInt(displayValue2));
+            let  result = operate(operator, parseInt(displayValue1), parseInt(displayValue2));
+            display.textContent = Math.round( result * 1000) / 1000;
             displayValue1 = undefined;
             displayValue2 = undefined;
             }
