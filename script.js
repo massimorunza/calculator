@@ -70,17 +70,22 @@ operators.forEach((button) => {
             display.textContent += operator ;
             // switcher = true;
             console.log(displayValue1, '', displayValue2);
-        } else if (display.textContent != displayValue1 + '+') {
+        } else if (display.textContent === displayValue1 + '+') {
+            return NaN;
+        } else if (display.textContent === displayValue1 + '-') {
+            return NaN;
+        } else if (display.textContent === displayValue1 + 'x') {
+            return NaN;
+        } else if (display.textContent === displayValue1 + '/') {
+            return NaN;
+        }
+         else {
             displayValue2 = parseInt(display.textContent);
             display.textContent = operate(operator, parseInt(displayValue1), parseInt(displayValue2)) +
                                 operator;
             displayValue1 = operate(operator, parseInt(displayValue1), parseInt(displayValue2));
             displayValue2 = undefined;
             console.log('eh ' + displayValue2);
-            // switcher = true;
-            // console.log(operate(operator, parseInt(displayValue1), parseInt(displayValue2)));
-        } else {
-            return NaN;
         }
     })
 });
@@ -100,7 +105,15 @@ calc.addEventListener('click', () => {
     //     displayValue2 = undefined;
     //     } 
         
-        else if (display.textContent != displayValue1 + '+') {
+        else if (display.textContent === displayValue1 + '+') {
+            return NaN;
+        } else if (display.textContent === displayValue1 + '-') {
+            return NaN;
+        } else if (display.textContent === displayValue1 + 'x') {
+            return NaN;
+        } else if (display.textContent === displayValue1 + '/') {
+            return NaN;
+        } else {
             displayValue2 = display.textContent;
             display.textContent = operate(operator, parseInt(displayValue1), parseInt(displayValue2));
             displayValue1 = undefined;
